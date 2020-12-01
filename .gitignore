@@ -4,3 +4,23 @@ src/db/
 *.qpf
 
 *.qsf
+
+src/greybox_tmp/
+
+src/incremental_db/
+
+src/output_files/
+
+src/simulation/
+
+*.bak
+
+*.rpt
+
+*.log
+
+*.qip
+
+*.v
+
+*.lnk
