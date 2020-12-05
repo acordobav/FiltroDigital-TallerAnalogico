@@ -18,7 +18,7 @@ Rom rom(.address(address),
 DigitalFilter lowpass_filter(.clk(clk),
 									  .rst(rst),
 									  .data_in(rom_out),
-									  .a1(32'hFFFFFECB),
+									  .a1(32'hFECB),
 									  .b0(32'h9A),
 									  .b1(32'h9A),
 									  .yn(yn_low));
@@ -27,12 +27,12 @@ DigitalFilter lowpass_filter(.clk(clk),
 DigitalFilter highpass_filter(.clk(clk),
 									   .rst(rst),
 									   .data_in(rom_out),
-									   .a1(32'hDAA4),
+									   .a1(32'hFFFFDAA4),
 									   .b0(32'h12AD),
 									   .b1(32'hFFFF12AD),
 									   .yn(yn_high));
 
-						
+					
 initial begin
 	clk = 1;
 	address = 0;
@@ -41,7 +41,6 @@ initial begin
 	f_lowpass = $fopen("highpass.txt","w");
 	
 	wait(address==20002);
-	$finish;
 	$fclose(f_highpass);  
 	$fclose(f_lowpass);
 	$finish;
@@ -55,7 +54,6 @@ begin
 	$fwrite(f_highpass, "%b ", yn_high+32'h3FFFFF);
 	$fwrite(f_lowpass,  "%b ", yn_low+32'h3FFFFF);
 end
-
 
 
 always
