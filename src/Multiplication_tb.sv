@@ -1,7 +1,5 @@
-module Multiplication_tb();/* #(parameter N = 4)
-							  (input logic [N-1:0] A, B,
-							   output logic [N-1:0] M);*/
-								
+module Multiplication_tb();
+		
 logic [15:0] A, B, Result;
 	
 Multiplication #(16) mult(A, B, Result);
@@ -34,5 +32,31 @@ initial begin
 	#10;
 	assert (Result === 16'b1111101111100000) else $error("Case 4: Result failed.");
 	#10;
+
+/*		
+logic [15:0] A, B, Result;
+	
+Multiplication #(16) mult(A, B, Result);
+
+initial begin
+	
+	// Caso 1
+	A = 32'h00060C2F;
+	B = 32'h0002009A;
+	#10;
+	assert (Result === 32'h000003A3) else $error("Case 1: Result failed.");
+	#10;
+	
+	// Caso 2
+	A = 32'hFFFFFECB;
+	B = 32'h00060C2F;
+	#10;
+	assert (Result === 32'hFFF904E2) else $error("Case 2: Result failed.");
+	#10;*/
+	
+	
 end
+
+
+
 endmodule 

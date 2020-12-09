@@ -32,10 +32,24 @@ while(valor < maximo)
   index += 1;  
 endwhile
 
-save tiempoM.txt tiempoM;
-
 % Calculo coheficientes
-fc_1 = 30; % Frecuencia baja
-fc_2 = 19e3; % Frecuenta alta
+fc_1 = 25; % Frecuencia baja
+fc_2 = 18e3; % Frecuenta alta
 [b_1, a_1]= butter(1, fc_1 / fm2); % Coheficientes filtro paso bajo
 [b_2, a_2]= butter(1, fc_2 / fm2 , "high"); % Coheficientes filtro paso alto
+
+
+n = 16; % cantidad numeros enteros
+m = 16; % cantidad numeros flotantes
+
+% Coeficientes filtro paso bajo
+bin_low_b0 = erase(num2str(fix(rem(b_1(1)*pow2(-(n-1):m),2)))," ");
+bin_low_b1 = erase(num2str(fix(rem(b_1(2)*pow2(-(n-1):m),2)))," ");
+bin_low_a0 = erase(num2str(fix(rem(a_1(1)*pow2(-(n-1):m),2)))," ");
+bin_low_a1 = erase(num2str(fix(rem(abs(a_1(2))*pow2(-(n-1):m),2)))," ");
+
+% Coeficientes filtro paso alto
+bin_high_b0 = erase(num2str(fix(rem(b_2(1)*pow2(-(n-1):m),2)))," ");
+bin_high_b1 = erase(num2str(fix(rem(abs(b_2(2))*pow2(-(n-1):m),2)))," ");
+bin_high_a0 = erase(num2str(fix(rem(a_2(1)*pow2(-(n-1):m),2)))," ");
+bin_high_a1 = erase(num2str(fix(rem(a_2(2)*pow2(-(n-1):m),2)))," ");

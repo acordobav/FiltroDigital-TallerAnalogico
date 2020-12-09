@@ -4,16 +4,16 @@ system('python -u "processFiles.py"');
 
 lowpass = load("-ascii", "lowpass-octave.txt");
 highpass = load("-ascii", "highpass-octave.txt");
-% tiempo = load("-ascii", "tiempoM.txt");
-size = size(lowpass)(1);
+lenght = size(lowpass)(1); 
 
 n = 7; % Cantidad de digitos enteros
 m = 16; % Cantidad de digitos flotantes
 
-lowpass_result  = zeros(size, 1);
-highpass_result = zeros(size, 1);
+lowpass_result  = zeros(lenght, 1);
+highpass_result = zeros(lenght, 1);
 
-for i = 1:size
+for i = 1:lenght
+  % Obtencion del elemento a convertir
   low_element  = lowpass(i,:);
   high_element = highpass(i,:);
   
@@ -22,8 +22,8 @@ for i = 1:size
 end 
 figure
 plot(lowpass_result);
-xlim([0 3000]);
+xlim([0 4000]);
 
 figure
 plot(highpass_result);
-xlim([0 3000]);
+xlim([0 4000]);

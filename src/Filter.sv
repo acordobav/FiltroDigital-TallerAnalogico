@@ -18,21 +18,21 @@ Rom rom(.address(address),
 DigitalFilter lowpass_filter(.clk(clk),
 									  .rst(rst),
 									  .data_in(rom_out),
-									  .a1(32'hFECB),
-									  .b0(32'h9A),
-									  .b1(32'h9A),
+									  .a1(32'hFEFF),
+									  .b0(32'h80),
+									  .b1(32'h80),
 									  .yn(yn_low));
 
 // Filtro Paso Alto		  
 DigitalFilter highpass_filter(.clk(clk),
 									   .rst(rst),
 									   .data_in(rom_out),
-									   .a1(32'hFFFFDAA4),
-									   .b0(32'h12AD),
-									   .b1(32'hFFFF12AD),
+									   .a1(32'hFFFFB9FE),
+									   .b0(32'h2300),
+									   .b1(32'hFFFF2300),
 									   .yn(yn_high));
 
-					
+			
 initial begin
 	clk = 1;
 	address = 0;
