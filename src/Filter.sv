@@ -27,18 +27,17 @@ DigitalFilter lowpass_filter(.clk(clk),
 DigitalFilter highpass_filter(.clk(clk),
 									   .rst(rst),
 									   .data_in(rom_out),
-									   .a1(32'hFFFFB9FE),
+									   .a1(32'hFFFF4602),
 									   .b0(32'h2300),
-									   .b1(32'hFFFF2300),
+									   .b1(32'hFFFFDD00),
 									   .yn(yn_high));
-
-			
+	/*	
 initial begin
 	clk = 1;
 	address = 0;
 	
-	f_highpass = $fopen("lowpass.txt","w");
-	f_lowpass = $fopen("highpass.txt","w");
+	f_highpass = $fopen("highpass.txt","w");
+	f_lowpass = $fopen("lowpass.txt","w");
 	
 	wait(address==20002);
 	$fclose(f_highpass);  
@@ -53,7 +52,7 @@ begin
 	//$display("PC:inst_mem_address: %d, data_mem_address: %d, data_mem_in_data: %d", 
 	$fwrite(f_highpass, "%b ", yn_high+32'h3FFFFF);
 	$fwrite(f_lowpass,  "%b ", yn_low+32'h3FFFFF);
-end
+end*/
 
 
 always
