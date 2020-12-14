@@ -24,3 +24,5 @@ src/simulation/
 *.v
 
 *.lnk
+
+*.qws
