@@ -27,7 +27,7 @@ assign neg = (A[N-1] || B[N-1]) && (A[N-1] !== B[N-1]);
 
 always_comb begin
 	if(mult[(N*2)-1:N-1] === {{N{1'b0}}}) begin
-		// No existe overflowd
+		// No existe overflow
 		Result <= neg ? (~mult[N-1:0])+1 : mult[N-1:0];
 	end else begin
 		// Existe overflow

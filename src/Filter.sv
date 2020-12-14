@@ -27,11 +27,11 @@ DigitalFilter lowpass_filter(.clk(clk),
 DigitalFilter highpass_filter(.clk(clk),
 									   .rst(rst),
 									   .data_in(rom_out),
-									   .a1(32'hFFFF4602),
-									   .b0(32'h2300),
-									   .b1(32'hFFFFDD00),
+									   .a1(32'hC035),
+									   .b0(32'hE01A),
+									   .b1(32'hFFFF1FE6),
 									   .yn(yn_high));
-/*		
+		
 initial begin
 	clk = 1;
 	address = 0;
@@ -52,7 +52,7 @@ begin
 	//$display("PC:inst_mem_address: %d, data_mem_address: %d, data_mem_in_data: %d", 
 	$fwrite(f_highpass, "%b ", yn_high+32'h3FFFFF);
 	$fwrite(f_lowpass,  "%b ", yn_low+32'h3FFFFF);
-end*/
+end
 
 always
 	#5 clk = !clk;
