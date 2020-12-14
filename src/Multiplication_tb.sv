@@ -13,10 +13,10 @@ initial begin
 	#10;
 	
 	// Caso 2
-	A = 16'b1111111010000000;
+	A = 16'b1111111001111111;
 	B = 16'b0000001101000000;
 	#10;
-	assert (Result === 16'b1111101111100000) else $error("Case 2: Result failed.");
+	assert (Result === 16'h1C001) else $error("Case 2: Result failed.");
 	#10;
 	
 	// Caso 3

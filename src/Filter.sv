@@ -31,7 +31,7 @@ DigitalFilter highpass_filter(.clk(clk),
 									   .b0(32'h2300),
 									   .b1(32'hFFFFDD00),
 									   .yn(yn_high));
-	/*	
+/*		
 initial begin
 	clk = 1;
 	address = 0;
@@ -53,7 +53,6 @@ begin
 	$fwrite(f_highpass, "%b ", yn_high+32'h3FFFFF);
 	$fwrite(f_lowpass,  "%b ", yn_low+32'h3FFFFF);
 end*/
-
 
 always
 	#5 clk = !clk;
