@@ -34,10 +34,10 @@ title("Filtro paso bajo")
 
 subplot(4,1,3);
 plot(highpass_result);
-xlim([0 6000]);
+xlim([0 4000]);
 title("Filtro paso alto")
 
 subplot(4,1,4);
 plot(highpass_result);
-xlim([0 2000]);
+xlim([0 1000]);
 title("Filtro paso alto")
